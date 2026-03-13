@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一带一路东南亚造价咨询服务</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        light: '#F5F7FA',
+                        dark: '#1D2129',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+            .text-gradient { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(90deg, #165DFF, #36CFC9); }
+            .section-padding { padding: 5rem 0; }
+        }
+    </style>
+</head>
+<body class="bg-white text-dark font-sans antialiased">
+
+<!-- 导航栏 + 语言切换 -->
+<header class="sticky top-0 bg-white shadow-sm z-50">
+    <div class="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+        <div class="text-xl font-bold text-primary">
+            <i class="fas fa-chart-line mr-2"></i>东南亚造价咨询
+        </div>
+
+        <div class="flex items-center gap-2 mt-2 sm:mt-0">
+            <button id="lang-zh" class="px-3 py-1.5 bg-primary text-white rounded">中文</button>
+            <button id="lang-en" class="px-3 py-1.5 bg-gray-200 hover:bg-primary hover:text-white rounded">English</button>
+            <button id="lang-th" class="px-3 py-1.5 bg-gray-200 hover:bg-primary hover:text-white rounded">ไทย</button>
+            <button id="lang-kh" class="px-3 py-1.5 bg-gray-200 hover:bg-primary hover:text-white rounded">ភាសាខ្មែរ</button>
+        </div>
+    </div>
+</header>
+
+<!-- 关于我们（四语） -->
+<section id="about" class="section-padding bg-light">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold mb-2" data-lang="about-title">关于我们</h2>
+            <h2 class="text-3xl font-bold mb-2 hidden" data-lang="about-title-en">About Us</h2>
+            <h2 class="text-3xl font-bold mb-2 hidden" data-lang="about-title-th">เกี่ยวกับเรา</h2>
+            <h2 class="text-3xl font-bold mb-2 hidden" data-lang="about-title-kh">អំពីយើង</h2>
+            <div class="w-16 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-white rounded-xl p-6 md:p-8 card-shadow">
+            <p class="mb-5 leading-relaxed" data-lang="about-text-1">
+                在国家“一带一路”倡议的宏大背景下，我们积极“走出去”，将东南亚作为核心战略区域，致力于为区域内基础设施及房地产开发项目提供高附加值的造价咨询与合约管控服务。
+            </p>
+            <p class="mb-5 leading-relaxed hidden" data-lang="about-text-1-en">
+                Under the Belt and Road Initiative, we actively go global, taking Southeast Asia as our core strategic region, providing high-value cost consulting and contract management services for infrastructure and real estate projects.
+            </p>
+            <p class="mb-5 leading-relaxed hidden" data-lang="about-text-1-th">
+                ภายใต้แนวคิดหนึ่งเชื่อมหนึ่งทาง เราขยายธุรกิจสู่อาเซียนเป็นพื้นที่กลยุทธ์ และให้บริการที่ปรึกษาต้นทุนและจัดการสัญญาคุณภาพสูงสำหรับโครงการโครงสร้างพื้นฐานและอสังหา
+            </p>
+            <p class="mb-5 leading-relaxed hidden" data-lang="about-text-1-kh">
+                ក្រោមគំនិតផ្តួចផ្តើមខ្សែក្រវាត់ផ្លូវមួយ យើងសហការទៅកាន់អាស៊ីអាគ្នេយ៍ជាតំបន់យុទ្ធសាស្ត្រ និងផ្តល់សេវាទីប្រឹក្សាតម្លៃ និងគ្រប់គ្រងកិច្ចសន្យាដែលមានតម្លៃខ្ពស់សម្រាប់គម្រោងហេដ្ឋារចនាសម្ព័ន្ធនិងអចលនទ្រព្យ។
+            </p>
+
+            <p class="mb-5 leading-relaxed" data-lang="about-text-2">
+                我们深度理解东南亚市场的政策环境、建材供应链特点及国际工程合约体系。在交通、能源、市政等基础设施领域，我们提供从投资估算、设计概算到全过程成本控制的专业支撑；在商业与住宅地产领域，我们提供招标策划、合同拟定、变更管控、结算审计等全链条服务。
+            </p>
+            <p class="mb-5 leading-relaxed hidden" data-lang="about-text-2-en">
+                We deeply understand policies, supply chains and international contract systems in Southeast Asia. For infrastructure, we provide full-process cost control; for real estate, we offer tender planning, contract drafting, change management and audit services.
+            </p>
+            <p class="mb-5 leading-relaxed hidden" data-lang="about-text-2-th">
+                เราเข้าใจนโยบาย ห่วงโซ่อุปทานและระบบสัญญาสากลในอาเซียนอย่างลึกซึ้ง สำหรับโครงสร้างพื้นฐาน เราให้บริการควบคุมต้นทุนตั้งแต่เริ่มต้นถึงสิ้นสุด สำหรับอสังหา เราให้บริการวางแผนประมูล สร้างสัญญา จัดการเปลี่ยนแปลง และตรวจสอบ
+            </p>
+            <p class="mb-5 leading-relaxed hidden" data-lang="about-text-2-kh">
+                យើងយល់ដឹងអំពីគោលនយោបាយ ខ្សែសង្វាក់ផ្គត់ផ្គង់ និងប្រព័ន្ធកិច្ចសន្យាអន្តរជាតិនៅអាស៊ីអាគ្នេយ៍។ សម្រាប់ហេដ្ឋារចនាសម្ព័ន្ធ យើងផ្តល់ការគ្រប់គ្រងការចំណាយពេញដំណើរ។ សម្រាប់អចលនទ្រព្យ យើងផ្តល់ការរៀបចំដេញថ្លៃ សរសេរកិច្ចសន្យា គ្រប់គ្រងការផ្លាស់ប្តូរ និងត្រួតពិនិត្យ។
+            </p>
+
+            <p class="leading-relaxed" data-lang="about-text-3">
+                我们不仅是成本顾问，更是项目风控专家。我们致力于搭建中国建设经验与东南亚发展需求的桥梁，以专业实力赋能区域发展，与合作伙伴携手打造“一带一路”上的精品工程。
+            </p>
+            <p class="leading-relaxed hidden" data-lang="about-text-3-en">
+                We are not just cost consultants, but project risk experts. We bridge China’s construction experience with Southeast Asia’s needs, empowering regional development and building high-quality Belt and Road projects.
+            </p>
+            <p class="leading-relaxed hidden" data-lang="about-text-3-th">
+                เราไม่ใช่แค่ที่ปรึกษาต้นทุน แต่ยังเป็นผู้เชี่ยวชาญจัดการความเสี่ยงด้วย เราสร้างสะพานระหว่างประสบการณ์ก่อสร้างจีนกับความต้องการอาเซียน สร้างโครงการคุณภาพใต้แนวคิดหนึ่งเชื่อมหนึ่งทาง
+            </p>
+            <p class="leading-relaxed hidden" data-lang="about-text-3-kh">
+                យើងមិនត្រឹមតែជាអ្នកប្រឹក្សាតម្លៃប៉ុណ្ណោះទេ ប៉ុន្តែក៏ជាអ្នកជំនាញគ្រប់គ្រងហានិភ័យផងដែរ។ យើងបង្កើតស្ពានរវាងបទពិសោធន៍សំណង់ចិន និងតម្រូវការអភិវឌ្ឍន៍អាស៊ីអាគ្នេយ៍ ដើម្បីបង្កើតគម្រោងដ៏ល្អក្រោមខ្សែក្រវាត់ផ្លូវមួយ។
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 服务看板（浅色数据风格） -->
+<section class="section-padding bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold" data-lang="service-title">核心服务与价值</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="service-title-en">Core Services & Value</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="service-title-th">บริการหลักและคุณค่า</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="service-title-kh">សេវាកម្មសំខាន់និងតម្លៃ</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="bg-light rounded-xl p-6 card-shadow">
+                <div class="text-primary text-3xl mb-4"><i class="fas fa-calculator"></i></div>
+                <h4 class="text-lg font-bold mb-2" data-lang="card1">造价咨询服务</h4>
+                <h4 class="text-lg font-bold mb-2 hidden" data-lang="card1-en">Cost Consulting</h4>
+                <p class="text-sm text-gray-600" data-lang="card1-c">投资估算、概算、预算、结算、全过程成本控制</p>
+            </div>
+
+            <div class="bg-light rounded-xl p-6 card-shadow">
+                <div class="text-primary text-3xl mb-4"><i class="fas fa-file-contract"></i></div>
+                <h4 class="text-lg font-bold mb-2" data-lang="card2">合约管控服务</h4>
+                <h4 class="text-lg font-bold mb-2 hidden" data-lang="card2-en">Contract Management</h4>
+                <p class="text-sm text-gray-600" data-lang="card2-c">合同策划、条款拟定、变更管理、风险防控</p>
+            </div>
+
+            <div class="bg-light rounded-xl p-6 card-shadow">
+                <div class="text-primary text-3xl mb-4"><i class="fas fa-globe-asia"></i></div>
+                <h4 class="text-lg font-bold mb-2" data-lang="card3">东南亚本地化服务</h4>
+                <h4 class="text-lg font-bold mb-2 hidden" data-lang="card3-en">Localization Service</h4>
+                <p class="text-sm text-gray-600" data-lang="card3-c">政策合规、供应链成本、当地惯例、风险应对</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 市场数据图表（浅色数据看板） -->
+<section class="section-padding bg-light">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold" data-lang="chart-title">市场数据概览</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="chart-title-en">Market Data Overview</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="chart-title-th">ภาพรวมข้อมูลตลาด</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="chart-title-kh">របៀបរួមបញ្ចូលទិន្នន័យទីផ្សារ</h3>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 md:p-8 card-shadow max-w-5xl mx-auto">
+            <canvas id="marketChart" height="300"></canvas>
+        </div>
+    </div>
+</section>
+
+<!-- 团队介绍 -->
+<section id="team" class="section-padding bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold" data-lang="team-title">专业团队</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="team-title-en">Our Team</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="team-title-th">ทีมงานของเรา</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="team-title-kh">ក្រុមហ៊ុនរបស់យើង</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-light rounded-xl p-6 card-shadow text-center">
+                <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-user-tie text-3xl text-primary"></i>
+                </div>
+                <h4 class="text-lg font-bold" data-lang="team1">造价专家</h4>
+                <h4 class="text-lg font-bold hidden" data-lang="team1-en">Cost Expert</h4>
+                <p class="text-sm text-gray-600 mt-2" data-lang="team1-c">10年以上国际项目造价经验</p>
+            </div>
+
+            <div class="bg-light rounded-xl p-6 card-shadow text-center">
+                <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-gavel text-3xl text-primary"></i>
+                </div>
+                <h4 class="text-lg font-bold" data-lang="team2">合约风控专家</h4>
+                <h4 class="text-lg font-bold hidden" data-lang="team2-en">Contract & Risk Expert</h4>
+                <p class="text-sm text-gray-600 mt-2" data-lang="team2-c">精通国际工程合约与风险管控</p>
+            </div>
+
+            <div class="bg-light rounded-xl p-6 card-shadow text-center">
+                <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-earth-asia text-3xl text-primary"></i>
+                </div>
+                <h4 class="text-lg font-bold" data-lang="team3">东南亚本地化团队</h4>
+                <h4 class="text-lg font-bold hidden" data-lang="team3-en">Local Southeast Asia Team</h4>
+                <p class="text-sm text-gray-600 mt-2" data-lang="team3-c">熟悉当地政策、法规与市场惯例</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 项目案例 -->
+<section id="projects" class="section-padding bg-light">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold" data-lang="projects-title">项目案例</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="projects-title-en">Projects</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="projects-title-th">โครงการที่ผ่านมา</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="projects-title-kh">គម្រោងដែលបានបង្កើត</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <div class="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-building text-4xl text-gray-400"></i>
+                </div>
+                <h4 class="text-lg font-bold mb-2" data-lang="project1">柬埔寨商业综合体项目</h4>
+                <h4 class="text-lg font-bold mb-2 hidden" data-lang="project1-en">Cambodia Commercial Complex</h4>
+                <p class="text-sm text-gray-600" data-lang="project1-c">全过程造价咨询 + 合约管控</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <div class="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-bolt text-4xl text-gray-400"></i>
+                </div>
+                <h4 class="text-lg font-bold mb-2" data-lang="project2">老挝新能源电站项目</h4>
+                <h4 class="text-lg font-bold mb-2 hidden" data-lang="project2-en">Laos Renewable Energy Project</h4>
+                <p class="text-sm text-gray-600" data-lang="project2-c">投资估算 + 成本控制 + 风险评估</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 在线咨询表单 -->
+<section id="consult" class="section-padding bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold" data-lang="consult-title">在线咨询</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="consult-title-en">Consultation</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="consult-title-th">ปรึกษา</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="consult-title-kh">ពិគ្រោះយោបល់</h3>
+        </div>
+
+        <div class="max-w-2xl mx-auto bg-light rounded-xl p-6 md:p-8 card-shadow">
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1" data-lang="form-name">姓名</label>
+                    <input type="text" class="w-full px-4 py-2 border rounded-lg" placeholder="Your Name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1" data-lang="form-email">邮箱</label>
+                    <input type="email" class="w-full px-4 py-2 border rounded-lg" placeholder="Email">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1" data-lang="form-message">咨询内容</label>
+                    <textarea rows="4" class="w-full px-4 py-2 border rounded-lg" placeholder="Your message..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90" data-lang="form-submit">提交咨询</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- PDF 报告下载 -->
+<section id="download" class="section-padding bg-light">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold" data-lang="download-title">行业报告下载</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="download-title-en">Reports Download</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="download-title-th">ดาวน์โหลดรายงาน</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="download-title-kh">ទាញយករបាយការណ៍</h3>
+        </div>
+
+        <div class="max-w-2xl mx-auto bg-white rounded-xl p-6 md:p-8 card-shadow">
+            <div class="flex items-center justify-between border-b pb-4 mb-4">
+                <div class="flex items-center">
+                    <i class="fas fa-file-pdf text-red-500 text-2xl mr-3"></i>
+                    <div>
+                        <h4 class="font-medium" data-lang="report1">东南亚造价咨询行业报告（2026）</h4>
+                        <h4 class="font-medium hidden" data-lang="report1-en">Southeast Asia Cost Consulting Report (2026)</h4>
+                        <p class="text-sm text-gray-500" data-lang="report-size">PDF · 5.2MB</p>
+                    </div>
+                </div>
+                <a href="#" class="text-primary hover:underline" data-lang="download-btn">下载</a>
+                <a href="#" class="text-primary hover:underline hidden" data-lang="download-btn-en">Download</a>
+                <a href="#" class="text-primary hover:underline hidden" data-lang="download-btn-th">ดาวน์โหลด</a>
+                <a href="#" class="text-primary hover:underline hidden" data-lang="download-btn-kh">ទាញយក</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系我们 -->
+<section id="contact" class="section-padding bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold" data-lang="contact-title">联系我们</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="contact-title-en">Contact Us</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="contact-title-th">ติดต่อเรา</h3>
+            <h3 class="text-2xl font-bold hidden" data-lang="contact-title-kh">ទំនាក់ទំនងយើង</h3>
+        </div>
+
+        <div class="max-w-2xl mx-auto bg-light rounded-xl p-6 md:p-8 card-shadow">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-envelope text-primary text-xl mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500" data-lang="contact-email">邮箱</p>
+                            <p class="font-medium">contact@example.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-primary text-xl mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500" data-lang="contact-address">地址</p>
+                            <p class="font-medium" data-lang="contact-address-cn">柬埔寨金边</p>
+                            <p class="font-medium hidden" data-lang="contact-address-en">Phnom Penh, Cambodia</p>
+                            <p class="font-medium hidden" data-lang="contact-address-th">พ្នមเปញ កម្ពុជា</p>
+                            <p class="font-medium hidden" data-lang="contact-address-kh">ភ្នំពេញ កម្ពុជា</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-center">
+                    <button class="bg-primary text-white py-2 px-6 rounded-lg hover:bg-primary/90 transition" data-lang="contact-btn">
+                        立即咨询
+                    </button>
+                    <button class="bg-primary text-white py-2 px-6 rounded-lg hover:bg-primary/90 transition hidden" data-lang="contact-btn-en">
+                        Contact Now
+                    </button>
+                    <button class="bg-primary text-white py-2 px-6 rounded-lg hover:bg-primary/90 transition hidden" data-lang="contact-btn-th">
+                        ติดต่อเลย
+                    </button>
+                    <button class="bg-primary text-white py-2 px-6 rounded-lg hover:bg-primary/90 transition hidden" data-lang="contact-btn-kh">
+                        ទំនាក់ទំនងឥឡូវនេះ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="bg-dark text-white py-6">
+    <div class="container mx-auto px-4 text-center text-sm">
+        <p>© 2026 东南亚造价咨询服务 | 一带一路 · 专业赋能</p>
+    </div>
+</footer>
+
+<!-- 四语切换 JS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let currentLang = "zh";
+    const langElements = document.querySelectorAll("[data-lang]");
+
+    function switchLanguage(lang) {
+        currentLang = lang;
+        langElements.forEach(el => {
+            el.classList.add("hidden");
+            if (
+                el.getAttribute("data-lang") === "about-title-" + lang ||
+                el.getAttribute("data-lang") === "about-text-1-" + lang ||
+                el.getAttribute("data-lang") === "about-text-2-" + lang ||
+                el.getAttribute("data-lang") === "about-text-3-" + lang ||
+                el.getAttribute("data-lang") === "service-title-" + lang ||
+                el.getAttribute("data-lang") === "chart-title-" + lang ||
+                el.getAttribute("data-lang") === "team-title-" + lang ||
+                el.getAttribute("data-lang") === "projects-title-" + lang ||
+                el.getAttribute("data-lang") === "consult-title-" + lang ||
+                el.getAttribute("data-lang") === "download-title-" + lang ||
+                el.getAttribute("data-lang") === "contact-title-" + lang ||
+                el.getAttribute("data-lang") === "team1-" + lang ||
+                el.getAttribute("data-lang") === "team2-" + lang ||
+                el.getAttribute("data-lang") === "team3-" + lang ||
+                el.getAttribute("data-lang") === "project1-" + lang ||
+                el.getAttribute("data-lang") === "project2-" + lang ||
+                el.getAttribute("data-lang") === "form-name-" + lang ||
+                el.getAttribute("data-lang") === "form-email-" + lang ||
+                el.getAttribute("data-lang") === "form-message-" + lang ||
+                el.getAttribute("data-lang") === "form-submit-" + lang ||
+                el.getAttribute("data-lang") === "report1-" + lang ||
+                el.getAttribute("data-lang") === "download-btn-" + lang ||
+                el.getAttribute("data-lang") === "contact-email-" + lang ||
+                el.getAttribute("data-lang") === "contact-address-" + lang ||
+                el.getAttribute("data-lang") === "contact-btn-" + lang ||
+                (el.getAttribute("data-lang") === "about-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "about-text-1" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "about-text-2" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "about-text-3" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "service-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "chart-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "team-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "projects-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "consult-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "download-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "contact-title" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "team1" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "team2" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "team3" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "project1" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "project2" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "form-name" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "form-email" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "form-message" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "form-submit" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "report1" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "report-size" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "download-btn" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "contact-email" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "contact-address" && lang === "zh") ||
+                (el.getAttribute("data-lang") === "contact-btn" && lang === "zh")
+            ) {
+                el.classList.remove("hidden");
+            }
+        });
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.classList.remove('bg-primary', 'text-white');
+            btn.classList.add('bg-gray-200');
+        });
+        document.getElementById('lang-' + lang).classList.add('bg-primary', 'text-white');
+    }
+
+    document.getElementById("lang-zh").addEventListener("click", () => switchLanguage("zh"));
+    document.getElementById("lang-en").addEventListener("click", () => switchLanguage("en"));
+    document.getElementById("lang-th").addEventListener("click", () => switchLanguage("th"));
+    document.getElementById("lang-kh").addEventListener("click", () => switchLanguage("kh"));
+
+    switchLanguage("zh");
+});
+</script>
+
+<!-- 图表 JS -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const ctx = document.getElementById('marketChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['泰国', '柬埔寨', '老挝', '越南', '马来西亚'],
+            datasets: [{
+                label: '造价咨询市场规模（亿美元）',
+                data: [34, 15, 6, 22, 18],
+                backgroundColor: [
+                    'rgba(22, 93, 255, 0.7)',
+                    'rgba(54, 207, 201, 0.7)',
+                    'rgba(255, 183, 3, 0.7)',
+                    'rgba(100, 181, 246, 0.7)',
+                    'rgba(153, 102, 255, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(22, 93, 255, 1)',
+                    'rgba(54, 207, 201, 1)',
+                    'rgba(255, 183, 3, 1)',
+                    'rgba(100, 181, 246, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
